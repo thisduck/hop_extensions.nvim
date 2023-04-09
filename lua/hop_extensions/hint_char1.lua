@@ -13,13 +13,12 @@ function M.hint_char1(opts)
 	end
 
 	local generator = jump_target.jump_targets_by_scanning_lines
-	local string = vim.fn.nr2char(c)
 
 	if c == 32 then
 		return hop.hint_with(generator(jump_target.regex_by_searching("\\v\\S\\zs ")), opts)
 	end
 
-	hop.hint_with(generator(jump_target.regex_by_case_searching(string, true, opts)), opts)
+	hop.hint_with(generator(jump_target.regex_by_case_searching(c, true, opts)), opts)
 end
 
 function M.register(opts)
